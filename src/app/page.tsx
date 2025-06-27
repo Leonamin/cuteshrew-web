@@ -1,103 +1,91 @@
-import Image from "next/image";
+import Link from 'next/link';
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="max-w-4xl mx-auto px-4 py-12">
+      {/* Hero Section */}
+      <section className="text-center mb-16">
+        <h1 className="text-5xl font-bold text-gray-900 mb-6">
+          CuteShrew Blog
+        </h1>
+        <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          개발과 기술에 대한 생각을 나누는 공간입니다. 
+          새로운 기술을 배우고, 경험을 공유하며 함께 성장해나가요.
+        </p>
+        <div className="flex justify-center space-x-4">
+          <Link 
+            href="/posts" 
+            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            글 목록 보기
+          </Link>
+          <Link 
+            href="/write" 
+            className="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-50 transition-colors"
           >
-            Read our docs
-          </a>
+            글쓰기
+          </Link>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Featured Posts Section */}
+      <section className="mb-16">
+        <h2 className="text-3xl font-bold text-gray-900 mb-8">최근 글</h2>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {/* 임시 포스트 카드들 */}
+          <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">
+              Next.js로 블로그 만들기
+            </h3>
+            <p className="text-gray-600 mb-4">
+              Next.js와 TypeScript를 사용해서 블로그를 만드는 과정을 공유합니다.
+            </p>
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-gray-500">2024.01.15</span>
+              <span className="text-sm text-blue-600">5분 읽기</span>
+            </div>
+          </div>
+
+          <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">
+              TypeScript 타입 시스템 이해하기
+            </h3>
+            <p className="text-gray-600 mb-4">
+              TypeScript의 타입 시스템을 깊이 있게 다뤄보겠습니다.
+            </p>
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-gray-500">2024.01.10</span>
+              <span className="text-sm text-blue-600">8분 읽기</span>
+            </div>
+          </div>
+
+          <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">
+              Tailwind CSS 활용 팁
+            </h3>
+            <p className="text-gray-600 mb-4">
+              Tailwind CSS를 더 효율적으로 사용하는 방법들을 소개합니다.
+            </p>
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-gray-500">2024.01.05</span>
+              <span className="text-sm text-blue-600">6분 읽기</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="bg-gray-50 rounded-lg p-8">
+        <h2 className="text-3xl font-bold text-gray-900 mb-4">About</h2>
+        <p className="text-gray-600 mb-4">
+          안녕하세요! 저는 개발자 CuteShrew입니다. 
+          프론트엔드 개발에 관심이 많고, 새로운 기술을 배우는 것을 좋아합니다.
+        </p>
+        <p className="text-gray-600">
+          이 블로그에서는 개발 경험, 기술 리뷰, 그리고 개인적인 생각들을 공유하려고 합니다.
+          함께 성장해나가요! 🚀
+        </p>
+      </section>
     </div>
   );
 }
