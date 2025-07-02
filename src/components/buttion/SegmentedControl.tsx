@@ -16,6 +16,16 @@ interface SegmentedControlProps<T extends string | number> {
   paddingVertical?: number;
 }
 
+const bgColorClass = {
+  default: 'bg-gray-100',
+  active: 'bg-gray-50',
+} as const
+
+const textColorClass = {
+  default: 'text-gray-900',
+  active: 'text-gray-900',
+} as const
+
 const SegmentedControl = <T extends string | number>({
   name,
   segments,
@@ -49,7 +59,7 @@ const SegmentedControl = <T extends string | number>({
   return (
     <div className="flex justify-center my-10" ref={containerRef}>
       <div
-        className="relative flex bg-gray-100 rounded-lg w-full"
+        className={`relative flex ${bgColorClass['default']} rounded-lg w-full`}
         style={{
           padding: `${paddingVertical}px ${paddingHorizontal}px`,
         }}
@@ -57,7 +67,7 @@ const SegmentedControl = <T extends string | number>({
         {/* 선택된 항목 하이라이트 */}
         <div
           ref={highlightRef}
-          className="absolute top-1.5 bottom-1.5 left-0 bg-gray-50 rounded-lg transition-all duration-300"
+          className={`absolute top-1.5 bottom-1.5 left-0 ${bgColorClass['active']} rounded-lg transition-all duration-300`}
         ></div>
 
         {segments.map((item, i) => (
@@ -80,8 +90,7 @@ const SegmentedControl = <T extends string | number>({
             />
             <label
               htmlFor={item.label}
-              className={`block py-2 font-semibold transition-all duration-300 text-gray-900"
-                }`}
+              className={`block py-2 font-semibold transition-all duration-300 ${textColorClass['default']}`}
             >
               {item.label}
             </label>
