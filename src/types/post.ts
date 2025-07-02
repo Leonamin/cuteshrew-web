@@ -1,26 +1,13 @@
-export interface Post {
+export interface PostListItem {
   id: string;
   title: string;
-  content: string;
-  excerpt?: string;
-  authorId: string;
-  authorName: string;
-  publishedAt: Date;
-  updatedAt: Date;
-  tags: string[];
-  isPublished: boolean;
-  thumbnailUrl?: string;
-  readTime?: number; // 읽는데 걸리는 시간 (분)
+  short_content: string;
+  thumbnail_url: string;
+  created_at: string; // 날짜 형식이므로 string 또는 Date로 받을 수 있습니다.
+  view_count: number;
+  like_count: number;
+  comment_count: number;
+  writer_id: number;
+  writer_name: string;
+  writer_thumbnail_url: string;
 }
-
-export interface CreatePostRequest {
-  title: string;
-  content: string;
-  tags: string[];
-  isPublished: boolean;
-  thumbnailUrl?: string;
-}
-
-export interface UpdatePostRequest extends Partial<CreatePostRequest> {
-  id: string;
-} 
