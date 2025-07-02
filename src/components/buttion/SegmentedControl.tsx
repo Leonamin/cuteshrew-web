@@ -76,7 +76,7 @@ const SegmentedControl = <T extends string | number>({
             ref={(el) => {
               if (el) segmentRefs.current[i] = el;
             }}
-            className="relative flex-1 text-center select-none"
+            className="relative flex-1 text-center select-none cursor-pointer"
             onClick={() => onInputChange(item.value, i)}
           >
             <input
@@ -90,7 +90,7 @@ const SegmentedControl = <T extends string | number>({
             />
             <label
               htmlFor={item.label}
-              className={`block py-2 font-semibold transition-all duration-300 ${textColorClass['default']}`}
+              className={`block py-2 font-semibold transition-all duration-300 cursor-pointer ${textColorClass['default']}`}
             >
               {item.label}
             </label>
